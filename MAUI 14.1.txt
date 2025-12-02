@@ -1,0 +1,22 @@
+1.Entry Name - TwoWay – użytkownik wpisuje tekst i może go odczytać; 
+ 
+Entry Price - TwoWay – trzeba odsyłać wpisaną cenę do modółu i odwrotnie pokazywać wartość.
+ 
+Stepper Quantity - TwoWay – Stepper zmienia Quantity.
+ 
+Label pokazujący Quantity - OneWay – tylko wysyłanie danych.
+ 
+Label TotalPrice - OneWay – wyłącznie prezentacja obliczonej wartości.
+ 
+2.Bo TotalPrice = Price × Quantity. Gdy zmieni się któraś z wartosci, trzeba poinformować UI, że jest inny wynik.
+ 
+3.
+Użytkownik edytuje pole.
+Entry wysyła nowy tekst do silnika bindowania.
+Konwersja string→decimal i wywołanie set Price.
+Setter ustawia price, zgłasza PropertyChanged dla „Price” i „TotalPrice”.
+Binding engine odbiera zdarzenia:
+ • odświeża Text w Entry (gdyby model go zmodyfikował),
+ • odświeża Label z TotalPrice.
+ 
+4.Nie. Jest to właściwość obliczana (read-only). UI ma ją tylko odczytywać; aktualizacja następuje poprzez zgłoszenie PropertyChanged, więc osobny setter jest zbędny.
