@@ -16,8 +16,8 @@ namespace MauiApp8
 
     public class User : INotifyPropertyChanged
     {
-        private string _FirstName ="John";
-        private string _LastName ="Doe";
+        private string _FirstName = "John";
+        private string _LastName = "Doe";
         private string _Email = "email@gmail.com";
         private int _Age = 30;
 
@@ -73,12 +73,20 @@ namespace MauiApp8
             }
         }
 
-      
+
         public event PropertyChangedEventHandler? PropertyChanged;
         protected void OnPropertyChanged([CallerMemberName] string propertyName = null!)
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
 
+        public ICommand ChangeDataCommand => new Command(ChangeData);
+        private void ChangeData()
+        {
+            FirstName = "Will";
+            LastName = "Smith";
+            Email = "jajobajo@gmail.com";
+            Age = 25;
+        }
     }
 }

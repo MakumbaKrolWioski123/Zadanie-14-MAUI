@@ -27,7 +27,13 @@
                  FontSize="32"
                  HorizontalOptions="Center"
              />
-            
+            <Button
+                Text="Update"
+                FontSize="32"
+                HorizontalOptions="Center"
+                Command="{Binding ChangeDataCommand}"
+             />
+
         </VerticalStackLayout>
     </ScrollView>
 
